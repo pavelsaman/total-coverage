@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "rome.rome",
+    "redhat.vscode-yaml",
+    "DavidAnson.vscode-markdownlint",
+    "jasonnutter.vscode-codeowners",
+    "johnpapa.vscode-peacock",
+    "kimlimjustin.jsdoc-generator",
+    "SonarSource.sonarlint-vscode",
+    "EditorConfig.EditorConfig"
+  ],
+  "unwantedRecommendations": []
+}

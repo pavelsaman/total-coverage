@@ -1,0 +1,12 @@
+.github/
+test/
+git-hooks/
+.vscode/
+src/
+.gitignore
+.gitattributes
+.nvmrc
+Makefile
+rome.json
+tsconfig.json
+.editorconfig

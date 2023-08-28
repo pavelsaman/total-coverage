@@ -1,0 +1,6 @@
+# development artifacts
+coverage/
+merge.sh
+
+# node
+node_modules/
