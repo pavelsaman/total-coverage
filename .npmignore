@@ -3,6 +3,7 @@ test/
 git-hooks/
 .vscode/
 src/
+coverage/
 .gitignore
 .gitattributes
 .nvmrc
@@ -10,3 +11,4 @@ Makefile
 rome.json
 tsconfig.json
 .editorconfig
+*.tgz

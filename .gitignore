@@ -4,3 +4,6 @@ merge.sh
 
 # node
 node_modules/
+
+# npm
+*.tgz
