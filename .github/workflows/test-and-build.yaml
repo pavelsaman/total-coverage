@@ -1,0 +1,52 @@
+
+name: Test and Build
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Cache node modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          check-latest: true
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Check formatting
+        run: npm run format-check
+
+      - name: Check linting
+        run: npm run lint-check
+
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build
