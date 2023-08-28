@@ -9,7 +9,7 @@ function testFileExistsAndIsReadable(path: string) {
   }
 
   if (!fs.lstatSync(path).isFile()) {
-    throw new Error('LCOV file is not an ordinary file.');
+    throw new Error('LCOV file is not a regular file.');
   }
 
   try {
