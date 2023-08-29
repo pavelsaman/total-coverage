@@ -36,7 +36,6 @@ export default function parse(pathToLcovFile: string): DetailCoverage {
     },
   };
 
-  // read file line by line
   const readLiner = new LineByLine(pathToLcovFile);
   let line;
   // rome-ignore lint/suspicious/noAssignInExpressions: valid use with readLiner and while here
