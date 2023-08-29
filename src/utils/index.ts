@@ -17,6 +17,10 @@ export function testFileExistsAndIsReadable(path: string) {
   }
 }
 
+function roundtoOneDecimalPlace(num: number): number {
+  return Math.round(num * 10) / 10;
+}
+
 export function calculateTotalCoverage(type: CoverageType, detailCoverage: DetailCoverage): number {
-  return Math.round((detailCoverage[type].hit / detailCoverage[type].found) * 100 * 10) / 10;
+  return roundtoOneDecimalPlace((detailCoverage[type].hit / detailCoverage[type].found) * 100);
 }
