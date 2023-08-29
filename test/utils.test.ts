@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { CoverageType, DetailCoverage } from '../src/models';
-import { calculateTotalCoverage, testFileExistsAndIsReadable } from '../src/utils';
+import { calculateTotalCoverage, returnWholeNumber, testFileExistsAndIsReadable } from '../src/utils';
 import { fixtureLcov } from './utils';
 
 test('testFileExistsAndIsReadable() throws when LCOV file is not found', () => {
@@ -94,4 +94,31 @@ test('calculateTotalCoverage() should return NaN when it cannot calculate the re
       } as DetailCoverage),
     ),
   );
+});
+
+[
+  {
+    name: 'returnWholeNumber(): returns 0 instead for NaN',
+    input: 'NaN',
+    result: 0,
+  },
+  {
+    name: 'returnWholeNumber(): returns 0 for string',
+    input: 'abc',
+    result: 0,
+  },
+  {
+    name: 'returnWholeNumber(): returns 0 for empty string',
+    input: '',
+    result: 0,
+  },
+  {
+    name: 'returnWholeNumber(): returns 5',
+    input: '5',
+    result: 5,
+  },
+].forEach(({ name, input, result }) => {
+  test(name, () => {
+    assert.strictEqual(returnWholeNumber(input), result);
+  });
 });
