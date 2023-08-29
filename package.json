@@ -4,6 +4,7 @@
   "description": "Parse LCOV file and return total coverages",
   "version": "1.0.0",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "keywords": [
     "lcov",
     "coverage"
