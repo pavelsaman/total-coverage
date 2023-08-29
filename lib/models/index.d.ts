@@ -1,38 +1,21 @@
-export declare enum Coverage {
-    Lines = "lines",
-    Branches = "branches",
-    Functions = "functions"
-}
 type CoverageCounter = {
     found: number;
     hit: number;
 };
-type LinesCoverageDetail = {
-    line: number;
-    hit: number;
-};
-type BranchesCoverageDetail = {
-    line: number;
-    block: number;
-    branch: number;
-    taken: number;
-};
-type FunctionsCoverageDetail = {
-    name: string;
-    line: number;
-};
-type LinesCoverage = CoverageCounter & {
-    details: LinesCoverageDetail[];
-};
-type BranchesCoverage = CoverageCounter & {
-    details: BranchesCoverageDetail[];
-};
-type FunctionsCoverage = CoverageCounter & {
-    details: FunctionsCoverageDetail[];
+export declare enum CoverageType {
+    Lines = "lines",
+    Branches = "branches",
+    Functions = "functions"
+}
+export declare enum TotalCoverageType {
+    TotalLineCov = "totalLineCov",
+    TotalBranchCov = "totalBranchCov",
+    TotalFunctionCov = "totalFunctionCov"
+}
+export type TotalCoverage = {
+    [K in TotalCoverageType]: number;
 };
 export type DetailCoverage = {
-    lines: LinesCoverage;
-    branches: BranchesCoverage;
-    functions: FunctionsCoverage;
+    [K in CoverageType]: CoverageCounter;
 };
 export {};

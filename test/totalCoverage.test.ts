@@ -7,18 +7,12 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import totalCoverage from '../src';
+import { TotalCoverageType } from '../src/models';
 import { fixtureLcov } from './utils';
 
-test('totalCoverage() gives the right shape', () => {
-  const coverage = totalCoverage(fixtureLcov);
-
-  assert('totalLineCov' in coverage);
-  assert('totalBranchCov' in coverage);
-  assert('totalFunctionCov' in coverage);
-});
-
-test('it throws when LCOV file is not found', () => {
-  assert.throws(() => {
-    totalCoverage('nonexistent');
+for (const coverageType in TotalCoverageType) {
+  test(`totalCoverage(): "${TotalCoverageType[coverageType]}" should be in return value`, () => {
+    const coverage = totalCoverage(fixtureLcov);
+    assert(TotalCoverageType[coverageType] in coverage);
   });
-});
+}

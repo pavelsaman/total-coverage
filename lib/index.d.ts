@@ -1,5 +1,2 @@
-export default function totalCoverage(pathToLcovFile: string): {
-    totalLineCov: number;
-    totalBranchCov: number;
-    totalFunctionCov: number;
-};
+import { TotalCoverage } from './models';
+export default function totalCoverage(pathToLcovFile: string): TotalCoverage;
