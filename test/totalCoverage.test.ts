@@ -16,3 +16,10 @@ for (const coverageType in TotalCoverageType) {
     assert(TotalCoverageType[coverageType] in coverage);
   });
 }
+
+test('totalCoverage() returns correct total coverages', () => {
+  const coverage = totalCoverage(fixtureLcov);
+  assert.strictEqual(coverage.totalLineCov, 60.8);
+  assert.strictEqual(coverage.totalFunctionCov, 60.4);
+  assert.strictEqual(coverage.totalBranchCov, 51.1);
+});

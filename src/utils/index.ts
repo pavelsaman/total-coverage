@@ -24,3 +24,8 @@ function roundtoOneDecimalPlace(num: number): number {
 export function calculateTotalCoverage(type: CoverageType, detailCoverage: DetailCoverage): number {
   return roundtoOneDecimalPlace((detailCoverage[type].hit / detailCoverage[type].found) * 100);
 }
+
+export function returnWholeNumber(numAsStr: string): number {
+  const num = Number(numAsStr.trim());
+  return isNaN(num) ? 0 : num;
+}

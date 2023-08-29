@@ -32,9 +32,13 @@
     "clean-all": "rm -rf lib/ && rm -rf node_modules/"
   },
   "devDependencies": {
+    "@types/n-readlines": "^1.0.3",
     "@types/node": "^20.5.7",
     "rome": "^12.1.3",
     "tsx": "^3.12.7",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "n-readlines": "^1.0.1"
   }
 }

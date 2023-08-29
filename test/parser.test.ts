@@ -16,3 +16,13 @@ for (const coverageType in CoverageType) {
     assert(CoverageType[coverageType] in coverage);
   });
 }
+
+test('parse() returns correct coverage counters', () => {
+  const coverage = parse(fixtureLcov);
+  assert.strictEqual(coverage.lines.found, 268);
+  assert.strictEqual(coverage.lines.hit, 163);
+  assert.strictEqual(coverage.functions.found, 48);
+  assert.strictEqual(coverage.functions.hit, 29);
+  assert.strictEqual(coverage.branches.found, 325);
+  assert.strictEqual(coverage.branches.hit, 166);
+});

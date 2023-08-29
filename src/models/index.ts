@@ -1,6 +1,10 @@
-type CoverageCounter = {
-  found: number;
-  hit: number;
+export enum CoverageCounter {
+  Found = 'found',
+  Hit = 'hit',
+}
+
+type CoverageCounterType = {
+  [K in CoverageCounter]: number;
 };
 
 export enum CoverageType {
@@ -20,5 +24,14 @@ export type TotalCoverage = {
 };
 
 export type DetailCoverage = {
-  [K in CoverageType]: CoverageCounter;
+  [K in CoverageType]: CoverageCounterType;
 };
+
+export enum LineType {
+  NumberOfLinesFound = 'LF',
+  NumberOfLinesHit = 'LH',
+  NumberOfFunctionsFound = 'FNF',
+  NumberOfFunctionsHit = 'FNH',
+  NumberOfBranchesFound = 'BRF',
+  NumberOfBranchesHit = 'BRH',
+}
