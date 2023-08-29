@@ -41,13 +41,13 @@ export default function parse(pathToLcovFile: string): DetailCoverage {
   // rome-ignore lint/suspicious/noAssignInExpressions: valid use with readLiner and while here
   while ((line = readLiner.next())) {
     const lineParts = line.toString().trim().split(':');
-    const instruction = lineParts?.[0]?.toUpperCase();
+    const instruction = lineParts[0].toUpperCase();
 
     const coverageType = instructionToCoverageTypeMapping.get(instruction as LineType);
     const hitOrFound = instructionToFoundOrHitMapping.get(instruction as LineType);
 
     if (coverageType && hitOrFound) {
-      coverageCounters[coverageType][hitOrFound] += returnWholeNumber(lineParts?.[1]);
+      coverageCounters[coverageType][hitOrFound] += returnWholeNumber(lineParts[1]);
     }
   }
 
