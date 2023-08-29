@@ -12,6 +12,20 @@ import totalCoverage from 'total-coverage';
 const { totalLineCov, totalBranchCov, totalFunctionCov } = totalCoverage('path/to/lcov.info');
 ```
 
+Or as a command line tool:
+
+```bash
+# global install
+$ npm install --global total-coverage
+$ total-coverage lcov.info
+{"totalLineCov":61.3,"totalBranchCov":51.2,"totalFunctionCov":55.1}
+
+# or install the package only locally
+$ npm install total-coverage
+$ npx total-coverage lcov.info
+{"totalLineCov":61.3,"totalBranchCov":51.2,"totalFunctionCov":55.1}
+```
+
 ## Contribution
 
 Initial project install:
