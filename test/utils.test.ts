@@ -98,12 +98,12 @@ test('calculateTotalCoverage() should return NaN when it cannot calculate the re
 
 [
   {
-    name: 'returnWholeNumber(): returns 0 instead for NaN',
+    name: 'returnWholeNumber(): returns 0 for NaN input string',
     input: 'NaN',
     result: 0,
   },
   {
-    name: 'returnWholeNumber(): returns 0 for string',
+    name: 'returnWholeNumber(): returns 0 for non-numeric string',
     input: 'abc',
     result: 0,
   },
@@ -113,8 +113,18 @@ test('calculateTotalCoverage() should return NaN when it cannot calculate the re
     result: 0,
   },
   {
-    name: 'returnWholeNumber(): returns 5',
+    name: 'returnWholeNumber(): returns 0 for string with whitespace',
+    input: '  ',
+    result: 0,
+  },
+  {
+    name: 'returnWholeNumber(): returns number for valid input',
     input: '5',
+    result: 5,
+  },
+  {
+    name: 'returnWholeNumber(): returns number when string contains whitespace',
+    input: ' 5  ',
     result: 5,
   },
 ].forEach(({ name, input, result }) => {
