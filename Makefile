@@ -5,7 +5,7 @@ COLOR_END   = \e[0m
 SAY         = @printf "$(COLOR_START)%s\n$(COLOR_END)"
 
 
-.PHONY: install install-git-hooks format format-check lint lint-check format-lint format-lint-check test build all clean clean-all
+.PHONY: install install-git-hooks format format-check lint lint-check format-lint format-lint-check test build pack all clean clean-all
 
 install-git-hooks:
 	$(SAY) "Installing git hooks..."
@@ -45,6 +45,10 @@ test:
 build: format lint test
 	$(SAY) "Building..."
 	@npm run $@
+
+pack:
+	$(SAY) "Creating a new package..."
+	@npm $@
 
 all: format lint test build
 

@@ -12,3 +12,4 @@ rome.json
 tsconfig.json
 .editorconfig
 *.tgz
+scripts/

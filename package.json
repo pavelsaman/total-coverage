@@ -30,6 +30,7 @@
     "lint-check": "rome check ./",
     "test": "node --loader tsx --no-warnings --test test/*.test.ts",
     "build": "tsc --build",
+    "prepack": "scripts/check-version.sh",
     "clean": "rm -rf lib/",
     "clean-all": "rm -rf lib/ && rm -rf node_modules/"
   },
