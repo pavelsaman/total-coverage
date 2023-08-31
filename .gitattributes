@@ -1,2 +1,2 @@
-lib/** -diff linguist-generated=true
-* text=auto eol=lf
+lib/** linguist-generated=true
+* text eol=lf
