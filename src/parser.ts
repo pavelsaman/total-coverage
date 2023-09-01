@@ -20,8 +20,8 @@ const instructionToFoundOrHitMapping = new Map([
   [LineType.NumberOfBranchesHit, CoverageCounter.Hit],
 ]);
 
-export default function parse(pathToLcovFile: string): DetailCoverage {
-  const coverageCounters: DetailCoverage = {
+export default function parse(pathToLcovFile: string, sourceFiles: string[]): DetailCoverage {
+  const coverageCounters = {
     lines: {
       found: 0,
       hit: 0,
@@ -35,20 +35,38 @@ export default function parse(pathToLcovFile: string): DetailCoverage {
       hit: 0,
     },
   };
+  const detailCoverage: DetailCoverage = {
+    ...JSON.parse(JSON.stringify(coverageCounters)),
+    files: {},
+  };
 
   const readLiner = new LineByLine(pathToLcovFile);
   let line;
+  let currentSourceFile = '';
   // rome-ignore lint/suspicious/noAssignInExpressions: valid use with readLiner and while here
   while ((line = readLiner.next())) {
-    const [instruction, hitOrFoundCount] = line.toString().trim().toUpperCase().split(':');
+    const [instruction, value] = line.toString().trim().split(':');
+
+    if (instruction === LineType.SourceFilename) {
+      currentSourceFile = value;
+      if (sourceFiles.includes(value)) {
+        detailCoverage.files = {
+          [value]: JSON.parse(JSON.stringify(coverageCounters)),
+          ...detailCoverage.files,
+        };
+      }
+    }
 
     const coverageType = instructionToCoverageTypeMapping.get(instruction as LineType);
     const hitOrFound = instructionToFoundOrHitMapping.get(instruction as LineType);
 
     if (coverageType && hitOrFound) {
-      coverageCounters[coverageType][hitOrFound] += returnWholeNumber(hitOrFoundCount);
+      detailCoverage[coverageType][hitOrFound] += returnWholeNumber(value);
+      if (currentSourceFile in detailCoverage.files) {
+        detailCoverage.files[currentSourceFile][coverageType][hitOrFound] += returnWholeNumber(value);
+      }
     }
   }
 
-  return coverageCounters;
+  return detailCoverage;
 }

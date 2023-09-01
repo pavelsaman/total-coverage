@@ -15,10 +15,22 @@ export declare enum TotalCoverageType {
     TotalBranchCov = "totalBranchCov",
     TotalFunctionCov = "totalFunctionCov"
 }
-export type TotalCoverage = {
-    [K in TotalCoverageType]: number;
+export type DetailFiles = {
+    files: FileCoverage;
 };
-export type DetailCoverage = {
+export type FileCoverage = {
+    [K in string]: Omit<DetailCoverage, keyof DetailFiles>;
+};
+export type FileTotalCoverage = {
+    [K in string]: Omit<TotalCoverage, keyof TotalFiles>;
+};
+type TotalFiles = {
+    files: FileTotalCoverage;
+};
+export type TotalCoverage = TotalFiles & {
+    [K in TotalCoverageType]: number | undefined;
+};
+export type DetailCoverage = DetailFiles & {
     [K in CoverageType]: CoverageCounterType;
 };
 export declare enum LineType {
@@ -27,6 +39,7 @@ export declare enum LineType {
     NumberOfFunctionsFound = "FNF",
     NumberOfFunctionsHit = "FNH",
     NumberOfBranchesFound = "BRF",
-    NumberOfBranchesHit = "BRH"
+    NumberOfBranchesHit = "BRH",
+    SourceFilename = "SF"
 }
 export {};
