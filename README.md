@@ -1,6 +1,6 @@
 # Total coverage
 
-Parse LCOV file and return total line, branch, and function coverage.
+Parse LCOV file and return total line, branch, and function coverage as well as coverages for specified source files.
 
 [![Test and Build](https://github.com/pavelsaman/total-coverage/actions/workflows/test-and-build.yaml/badge.svg?branch=master)](https://github.com/pavelsaman/total-coverage/actions/workflows/test-and-build.yaml)
 
@@ -9,7 +9,18 @@ Parse LCOV file and return total line, branch, and function coverage.
 ```ts
 import totalCoverage from 'total-coverage';
 
-const { totalLineCov, totalBranchCov, totalFunctionCov } = totalCoverage('path/to/lcov.info');
+const {
+  totalLineCov,
+  totalBranchCov,
+  totalFunctionCov
+} = totalCoverage('path/to/lcov.info');
+
+const {
+  totalLineCov,
+  totalBranchCov,
+  totalFunctionCov,
+  files
+} = totalCoverage('path/to/lcov.info', ['apps/api/src/a.ts', 'apps/api/src/b.ts']);
 ```
 
 Or as a command line tool:
