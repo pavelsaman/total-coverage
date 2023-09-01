@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { CoverageType, DetailCoverage, DetailFiles } from '../models';
+import { CoverageType, DetailCoverage, DetailFiles, OmitFrom } from '../models';
 
 export function testFileExistsAndIsReadable(path: string) {
   if (!fs.existsSync(path)) {
@@ -23,7 +23,7 @@ function roundtoOneDecimalPlace(num: number): number {
 
 export function calculateTotalCoverage(
   type: CoverageType,
-  detailCoverage: Omit<DetailCoverage, keyof DetailFiles>,
+  detailCoverage: OmitFrom<DetailCoverage, keyof DetailFiles>,
 ): number {
   return roundtoOneDecimalPlace((detailCoverage[type].hit / detailCoverage[type].found || 0) * 100);
 }

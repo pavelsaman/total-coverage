@@ -15,20 +15,21 @@ export declare enum TotalCoverageType {
     TotalBranchCov = "totalBranchCov",
     TotalFunctionCov = "totalFunctionCov"
 }
-export type DetailFiles = {
-    files: FileCoverage;
-};
-export type FileCoverage = {
-    [K in string]: Omit<DetailCoverage, keyof DetailFiles>;
-};
+export type OmitFrom<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 export type FileTotalCoverage = {
-    [K in string]: Omit<TotalCoverage, keyof TotalFiles>;
+    [K in string]: OmitFrom<TotalCoverage, keyof TotalFiles>;
 };
 type TotalFiles = {
     files?: FileTotalCoverage;
 };
 export type TotalCoverage = TotalFiles & {
     [K in TotalCoverageType]: number;
+};
+type FileDetailCoverage = {
+    [K in string]: OmitFrom<DetailCoverage, keyof DetailFiles>;
+};
+export type DetailFiles = {
+    files: FileDetailCoverage;
 };
 export type DetailCoverage = DetailFiles & {
     [K in CoverageType]: CoverageCounterType;
