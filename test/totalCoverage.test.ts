@@ -12,13 +12,18 @@ import { fixtureLcov } from './utils';
 
 for (const coverageType in TotalCoverageType) {
   test(`totalCoverage(): "${TotalCoverageType[coverageType]}" should be in return value`, () => {
-    const coverage = totalCoverage(fixtureLcov);
+    const coverage = totalCoverage(fixtureLcov, []);
     assert(TotalCoverageType[coverageType] in coverage);
   });
 }
 
+test(`totalCoverage(): empty "files" should be in return value when no source files were passed`, () => {
+  const coverage = totalCoverage(fixtureLcov, []);
+  assert('files' in coverage);
+});
+
 test('totalCoverage() returns correct total coverages', () => {
-  const coverage = totalCoverage(fixtureLcov);
+  const coverage = totalCoverage(fixtureLcov, []);
   assert.strictEqual(coverage.totalLineCov, 60.8);
   assert.strictEqual(coverage.totalFunctionCov, 60.4);
   assert.strictEqual(coverage.totalBranchCov, 51.1);

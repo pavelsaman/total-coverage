@@ -12,13 +12,19 @@ import { fixtureLcov } from './utils';
 
 for (const coverageType in CoverageType) {
   test(`parse(): "${CoverageType[coverageType]}" should be in return value`, () => {
-    const coverage = parse(fixtureLcov);
+    const coverage = parse(fixtureLcov, []);
     assert(CoverageType[coverageType] in coverage);
   });
 }
 
+test(`parse(): empty "files" should be in return value when no source files were passed`, () => {
+  const coverage = parse(fixtureLcov, []);
+  assert('files' in coverage);
+  assert.strictEqual(Object.keys(coverage.files).length, 0);
+});
+
 test('parse() returns correct coverage counters', () => {
-  const coverage = parse(fixtureLcov);
+  const coverage = parse(fixtureLcov, []);
   assert.strictEqual(coverage.lines.found, 268);
   assert.strictEqual(coverage.lines.hit, 163);
   assert.strictEqual(coverage.functions.found, 48);

@@ -83,16 +83,15 @@ test('testFileExistsAndIsReadable() should not throw when LCOV exists', () => {
   });
 });
 
-test('calculateTotalCoverage() should return NaN when it cannot calculate the result', () => {
-  assert(
-    isNaN(
-      calculateTotalCoverage(CoverageType.Lines, {
-        lines: {
-          hit: 0,
-          found: 0,
-        },
-      } as DetailCoverage),
-    ),
+test('calculateTotalCoverage() should return 0 when it cannot calculate the result', () => {
+  assert.strictEqual(
+    calculateTotalCoverage(CoverageType.Lines, {
+      lines: {
+        hit: 0,
+        found: 0,
+      },
+    } as DetailCoverage),
+    0,
   );
 });
 
