@@ -19,7 +19,7 @@ const {
   totalLineCov,
   totalBranchCov,
   totalFunctionCov,
-  files
+  files,
 } = totalCoverage('path/to/lcov.info', ['apps/api/src/a.ts', 'apps/api/src/b.ts']);
 ```
 
