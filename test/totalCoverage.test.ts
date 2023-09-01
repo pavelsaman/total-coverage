@@ -29,13 +29,24 @@ for (const coverageType in TotalCoverageType) {
   });
 }
 
-test(`totalCoverage(): empty "files" should be in return value when no source files were passed`, () => {
+test(`totalCoverage(): "files" should not be in return value when no source files were passed`, () => {
   const coverage = totalCoverage(fixtureLcov, []);
+  assert(!('files' in coverage));
+});
+
+test(`totalCoverage(): "files" should not be in return value when the source file was not in LCOV file`, () => {
+  const coverage = totalCoverage(fixtureLcov, ['doesNotExistInLCOVFile']);
+  assert(!('files' in coverage));
+});
+
+test(`totalCoverage(): "files" should be in return value when no source files were passed`, () => {
+  const coverage = totalCoverage(fixtureLcov, ['apps/api/src/a.ts']);
   assert('files' in coverage);
 });
 
 test('totalCoverage() returns correct total coverages', () => {
   const coverage = totalCoverage(fixtureLcov, []);
+
   assert.strictEqual(coverage.totalLineCov, 60.8);
   assert.strictEqual(coverage.totalFunctionCov, 60.4);
   assert.strictEqual(coverage.totalBranchCov, 51.1);
@@ -50,9 +61,9 @@ test('totalCoverage(): returns correct total coverages also for passed source fi
   assert.strictEqual(coverage.totalBranchCov, 51.1);
 
   assert('files' in coverage);
-  assert.strictEqual(coverage.files[sourceFile].totalLineCov, 67.5);
-  assert.strictEqual(coverage.files[sourceFile].totalFunctionCov, 68);
-  assert.strictEqual(coverage.files[sourceFile].totalBranchCov, 59.4);
+  assert.strictEqual(coverage.files?.[sourceFile].totalLineCov, 67.5);
+  assert.strictEqual(coverage.files?.[sourceFile].totalFunctionCov, 68);
+  assert.strictEqual(coverage.files?.[sourceFile].totalBranchCov, 59.4);
 });
 
 test('totalCoverage(): calculate total coverage and coverage for two source files', () => {
@@ -65,11 +76,11 @@ test('totalCoverage(): calculate total coverage and coverage for two source file
   assert.strictEqual(coverage.totalBranchCov, 51.1);
 
   assert('files' in coverage);
-  assert.strictEqual(coverage.files[sourceFileA].totalLineCov, 67.5);
-  assert.strictEqual(coverage.files[sourceFileA].totalFunctionCov, 68);
-  assert.strictEqual(coverage.files[sourceFileA].totalBranchCov, 59.4);
+  assert.strictEqual(coverage.files?.[sourceFileA].totalLineCov, 67.5);
+  assert.strictEqual(coverage.files?.[sourceFileA].totalFunctionCov, 68);
+  assert.strictEqual(coverage.files?.[sourceFileA].totalBranchCov, 59.4);
 
-  assert.strictEqual(coverage.files[sourceFileC].totalLineCov, 85.7);
-  assert.strictEqual(coverage.files[sourceFileC].totalFunctionCov, 70);
-  assert.strictEqual(coverage.files[sourceFileC].totalBranchCov, 59.7);
+  assert.strictEqual(coverage.files?.[sourceFileC].totalLineCov, 85.7);
+  assert.strictEqual(coverage.files?.[sourceFileC].totalFunctionCov, 70);
+  assert.strictEqual(coverage.files?.[sourceFileC].totalBranchCov, 59.7);
 });

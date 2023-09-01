@@ -1,9 +1,9 @@
 import path from 'path';
 import { CoverageType, FileTotalCoverage, TotalCoverage } from './models';
 import parse from './parser';
-import { calculateTotalCoverage, testFileExistsAndIsReadable } from './utils';
+import { calculateTotalCoverage, omitEmpty, testFileExistsAndIsReadable } from './utils';
 
-export default function totalCoverage(pathToLcovFile: string, sourceFiles: string[]): TotalCoverage {
+export default function totalCoverage(pathToLcovFile: string, sourceFiles?: string[]): TotalCoverage {
   const normalizedPath = path.normalize(pathToLcovFile);
   testFileExistsAndIsReadable(normalizedPath);
 
@@ -17,10 +17,12 @@ export default function totalCoverage(pathToLcovFile: string, sourceFiles: strin
     };
   });
 
-  return {
+  const totalCoverages = {
     totalLineCov: calculateTotalCoverage(CoverageType.Lines, detailCoverage),
     totalBranchCov: calculateTotalCoverage(CoverageType.Branches, detailCoverage),
     totalFunctionCov: calculateTotalCoverage(CoverageType.Functions, detailCoverage),
     files,
   };
+  omitEmpty(totalCoverages, 'files');
+  return totalCoverages;
 }

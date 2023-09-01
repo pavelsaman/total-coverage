@@ -25,7 +25,7 @@ export type FileTotalCoverage = {
     [K in string]: Omit<TotalCoverage, keyof TotalFiles>;
 };
 type TotalFiles = {
-    files: FileTotalCoverage;
+    files?: FileTotalCoverage;
 };
 export type TotalCoverage = TotalFiles & {
     [K in TotalCoverageType]: number;

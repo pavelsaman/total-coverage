@@ -32,3 +32,9 @@ export function returnWholeNumber(numAsStr: string): number {
   const num = Number(numAsStr.trim());
   return isNaN(num) ? 0 : num;
 }
+
+export function omitEmpty<T extends object>(obj: T, prop: keyof T): void {
+  if (typeof obj[prop] === 'object' && Object.keys(obj[prop] as object).length === 0) {
+    delete obj[prop];
+  }
+}

@@ -32,7 +32,7 @@ export type FileTotalCoverage = {
 };
 
 type TotalFiles = {
-  files: FileTotalCoverage;
+  files?: FileTotalCoverage;
 };
 
 export type TotalCoverage = TotalFiles & {
