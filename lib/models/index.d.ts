@@ -28,7 +28,7 @@ type TotalFiles = {
     files: FileTotalCoverage;
 };
 export type TotalCoverage = TotalFiles & {
-    [K in TotalCoverageType]: number | undefined;
+    [K in TotalCoverageType]: number;
 };
 export type DetailCoverage = DetailFiles & {
     [K in CoverageType]: CoverageCounterType;

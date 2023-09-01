@@ -24,8 +24,8 @@ function roundtoOneDecimalPlace(num: number): number {
 export function calculateTotalCoverage(
   type: CoverageType,
   detailCoverage: Omit<DetailCoverage, keyof DetailFiles>,
-): number | undefined {
-  return roundtoOneDecimalPlace((detailCoverage[type].hit / detailCoverage[type].found) * 100);
+): number {
+  return roundtoOneDecimalPlace((detailCoverage[type].hit / detailCoverage[type].found || 0) * 100);
 }
 
 export function returnWholeNumber(numAsStr: string): number {

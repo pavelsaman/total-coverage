@@ -36,7 +36,7 @@ type TotalFiles = {
 };
 
 export type TotalCoverage = TotalFiles & {
-  [K in TotalCoverageType]: number | undefined;
+  [K in TotalCoverageType]: number;
 };
 
 export type DetailCoverage = DetailFiles & {

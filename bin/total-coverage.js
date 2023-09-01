@@ -9,4 +9,4 @@ if (args.length <= 2) {
 }
 
 const pathToFile = args[args.length - 1];
-console.log(JSON.stringify(totalCoverage(pathToFile, ['apps/api/src/a.ts'])));
+console.log(JSON.stringify(totalCoverage(pathToFile, ['apps/api/src/a.ts', 'apps/api/src/c.ts'])));
