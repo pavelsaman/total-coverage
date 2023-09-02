@@ -17,7 +17,7 @@ const {
 
 const sourceFilesToGetCoverageFor = [
   'apps/api/src/a.ts',
-  'apps/api/src/b.ts'
+  'apps/api/src/b.ts',
 ];
 const {
   totalLineCov,
