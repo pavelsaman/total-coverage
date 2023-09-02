@@ -22,7 +22,9 @@ const {
   files,
 } = totalCoverage('path/to/lcov.info', ['apps/api/src/a.ts', 'apps/api/src/b.ts']);
 
-// files property is not present if no concrete files were passed or no such files were found in the lcov file
+// files property is not present if no concrete files were passed 
+// or no such files were found in the lcov file
+//
 // {
 //   "totalLineCov": 90.7,
 //   "totalBranchCov": 71.1,
