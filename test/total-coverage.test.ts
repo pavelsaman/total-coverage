@@ -4,17 +4,17 @@
 //   functions..: 60.4% (29 of 48 functions)
 //   branches...: 51.1% (166 of 325 branches)
 
-// $ lcov --rc branch_coverage=1 --summary test/fixtures/only-a.info
-// Summary coverage rate:
-//   lines......: 67.5% (104 of 154 lines)
-//   functions..: 68.0% (17 of 25 functions)
-//   branches...: 59.4% (98 of 165 branches)
-
-// $ lcov --rc branch_coverage=1 --summary test/fixtures/only-c.info
-// Summary coverage rate:
-//   lines......: 85.7% (36 of 42 lines)
-//   functions..: 70.0% (7 of 10 functions)
-//   branches...: 59.7% (43 of 72 branches)
+// $ lcov --rc branch_coverage=1 --list test/fixtures/lcov.info
+// Reading tracefile test/fixtures/lcov.info
+//             |Lines       |Functions  |Branches
+// Filename    |Rate     Num|Rate    Num|Rate     Num
+// ==================================================
+// [apps/api/src/]
+// a.ts        |67.5%    154|68.0%    25|59.4%    165
+// b.ts        |31.9%     72|38.5%    13|28.4%     88
+// c.ts        |85.7%     42|70.0%    10|59.7%     72
+// ==================================================
+//       Total:|60.8%    268|60.4%    48|51.1%    325
 
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
