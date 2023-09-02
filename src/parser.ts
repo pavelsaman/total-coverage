@@ -46,8 +46,9 @@ export default function parse(pathToLcovFile: string, sourceFiles: string[]): De
   // rome-ignore lint/suspicious/noAssignInExpressions: valid use with readLiner and while here
   while ((line = readLiner.next())) {
     const [instruction, value] = line.toString().trim().split(':');
+    const instructionUpper = instruction.toUpperCase();
 
-    if (instruction === LineType.SourceFilename) {
+    if (instructionUpper === LineType.SourceFilename) {
       currentSourceFile = value;
       if (sourceFiles.includes(value)) {
         detailCoverage.files = {
@@ -57,8 +58,8 @@ export default function parse(pathToLcovFile: string, sourceFiles: string[]): De
       }
     }
 
-    const coverageType = instructionToCoverageTypeMapping.get(instruction as LineType);
-    const hitOrFound = instructionToFoundOrHitMapping.get(instruction as LineType);
+    const coverageType = instructionToCoverageTypeMapping.get(instructionUpper as LineType);
+    const hitOrFound = instructionToFoundOrHitMapping.get(instructionUpper as LineType);
 
     if (coverageType && hitOrFound) {
       detailCoverage[coverageType][hitOrFound] += returnWholeNumber(value);
