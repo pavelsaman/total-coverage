@@ -1,6 +1,6 @@
 import LineByLine from 'n-readlines';
 import { CoverageCounter, CoverageType, DetailCoverage, LineType } from './models';
-import { returnWholeNumber } from './utils';
+import { deepClone, returnWholeNumber } from './utils';
 
 const instructionToCoverageTypeMapping = new Map([
   [LineType.NumberOfLinesFound, CoverageType.Lines],
@@ -36,7 +36,7 @@ export default function parse(pathToLcovFile: string, sourceFiles: string[]): De
     },
   };
   const detailCoverage: DetailCoverage = {
-    ...JSON.parse(JSON.stringify(coverageCounters)),
+    ...deepClone(coverageCounters),
     files: {},
   };
 
@@ -52,7 +52,7 @@ export default function parse(pathToLcovFile: string, sourceFiles: string[]): De
       currentSourceFile = value;
       if (sourceFiles.includes(value)) {
         detailCoverage.files = {
-          [value]: JSON.parse(JSON.stringify(coverageCounters)),
+          [value]: deepClone(coverageCounters),
           ...detailCoverage.files,
         };
       }
