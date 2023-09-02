@@ -10,3 +10,4 @@ node_modules/
 
 lcov-*/
 **.tar.gz
+**-test.js
