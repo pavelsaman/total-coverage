@@ -15,7 +15,10 @@ const {
   totalFunctionCov
 } = totalCoverage('path/to/lcov.info');
 
-const sourceFilesToGetCoverageFor = ['apps/api/src/a.ts', 'apps/api/src/b.ts'];
+const sourceFilesToGetCoverageFor = [
+  'apps/api/src/a.ts',
+  'apps/api/src/b.ts'
+];
 const {
   totalLineCov,
   totalBranchCov,
