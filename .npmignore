@@ -13,3 +13,5 @@ tsconfig.json
 .editorconfig
 *.tgz
 scripts/
+lcov-*/
+**.tar.gz
