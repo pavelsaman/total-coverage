@@ -15,15 +15,16 @@ const {
   totalFunctionCov
 } = totalCoverage('path/to/lcov.info');
 
+const sourceFilesToGetCoverageFor = ['apps/api/src/a.ts', 'apps/api/src/b.ts'];
 const {
   totalLineCov,
   totalBranchCov,
   totalFunctionCov,
   files,
-} = totalCoverage('path/to/lcov.info', ['apps/api/src/a.ts', 'apps/api/src/b.ts']);
+} = totalCoverage('path/to/lcov.info', sourceFilesToGetCoverageFor);
 
-// files property is not present if no concrete files were passed 
-// or no such files were found in the lcov file
+// files property is not present if no concrete source files were passed 
+// or no such source files were found in the lcov file
 //
 // {
 //   "totalLineCov": 90.7,
