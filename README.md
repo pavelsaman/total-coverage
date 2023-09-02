@@ -27,21 +27,25 @@ const {
 // or no such source files were found in the lcov file
 //
 // {
-//   "totalLineCov": 90.7,
-//   "totalBranchCov": 71.1,
-//   "totalFunctionCov": 87.2,
+//   "totalLineCov": 60.8,
+//   "totalBranchCov": 51.1,
+//   "totalFunctionCov": 60.4,
 //   "files": {
-//     "apps/api/src/a.ts": {
-//       "totalLineCov": 76.4,
-//       "totalBranchCov": 71.6,
-//       "totalFunctionCov": 76.9
+//     "apps/api/src/c.ts": {
+//       "totalLineCov": 85.7,
+//       "totalBranchCov": 59.7,
+//       "totalFunctionCov": 70
 //     },
 //     "apps/api/src/b.ts": {
-//       "totalLineCov": 90.3,
-//       "totalBranchCov": 74.5,
-//       "totalFunctionCov": 92
+//       "totalLineCov": 31.9,
+//       "totalBranchCov": 28.4,
+//       "totalFunctionCov": 38.5
 //     },
-//     // ...
+//     "apps/api/src/a.ts": {
+//       "totalLineCov": 67.5,
+//       "totalBranchCov": 59.4,
+//       "totalFunctionCov": 68
+//     }
 //   }
 // }
 ```
@@ -53,6 +57,25 @@ Or as a command line tool:
 $ npm install --global total-coverage
 $ total-coverage lcov.info
 {"totalLineCov":61.3,"totalBranchCov":51.2,"totalFunctionCov":55.1}
+# ask for coverage for concrete source files
+$ total-coverage lcov.info apps/api/src/a.ts apps/api/src/b.ts | jq
+{
+  "totalLineCov": 60.8,
+  "totalBranchCov": 51.1,
+  "totalFunctionCov": 60.4,
+  "files": {
+    "apps/api/src/b.ts": {
+      "totalLineCov": 31.9,
+      "totalBranchCov": 28.4,
+      "totalFunctionCov": 38.5
+    },
+    "apps/api/src/a.ts": {
+      "totalLineCov": 67.5,
+      "totalBranchCov": 59.4,
+      "totalFunctionCov": 68
+    }
+  }
+}
 
 # or install the package only locally
 $ npm install total-coverage
