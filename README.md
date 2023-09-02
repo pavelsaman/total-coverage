@@ -21,6 +21,26 @@ const {
   totalFunctionCov,
   files,
 } = totalCoverage('path/to/lcov.info', ['apps/api/src/a.ts', 'apps/api/src/b.ts']);
+
+// files property is not present if no concrete files were passed or no such files were found in the lcov file
+// {
+//   "totalLineCov": 90.7,
+//   "totalBranchCov": 71.1,
+//   "totalFunctionCov": 87.2,
+//   "files": {
+//     "apps/api/src/a.ts": {
+//       "totalLineCov": 76.4,
+//       "totalBranchCov": 71.6,
+//       "totalFunctionCov": 76.9
+//     },
+//     "apps/api/src/b.ts": {
+//       "totalLineCov": 90.3,
+//       "totalBranchCov": 74.5,
+//       "totalFunctionCov": 92
+//     },
+//     // ...
+//   }
+// }
 ```
 
 Or as a command line tool:
