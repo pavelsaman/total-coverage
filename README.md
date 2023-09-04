@@ -18,6 +18,7 @@ const {
 const sourceFilesToGetCoverageFor = [
   'apps/api/src/a.ts',
   'apps/api/src/b.ts',
+  'apps/api/src/c.ts',
 ];
 const {
   totalLineCov,
@@ -26,7 +27,7 @@ const {
   files,
 } = totalCoverage('path/to/lcov.info', sourceFilesToGetCoverageFor);
 
-// files property is not present if no concrete source files were passed 
+// files property is not present if no concrete source files were passed
 // or no such source files were found in the lcov file
 //
 // {
