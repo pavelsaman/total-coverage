@@ -25,12 +25,13 @@ export function calculateTotalCoverage(
   type: CoverageType,
   detailCoverage: OmitFrom<DetailCoverage, keyof DetailFiles>,
 ): number {
-  return roundtoOneDecimalPlace((detailCoverage[type].hit / detailCoverage[type].found || 0) * 100);
+  const totalCoverage = roundtoOneDecimalPlace((detailCoverage[type].hit / detailCoverage[type].found) * 100);
+  return isFinite(totalCoverage) ? totalCoverage : 0;
 }
 
 export function returnWholeNumber(numAsStr: string): number {
   const num = Number(numAsStr.trim());
-  return isNaN(num) ? 0 : num;
+  return isFinite(num) ? num : 0;
 }
 
 export function omitEmpty<T extends object>(obj: T, prop: keyof T): void {

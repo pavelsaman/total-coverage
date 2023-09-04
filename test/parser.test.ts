@@ -35,7 +35,7 @@ test(`parse(): empty "files" should be in return value when no source files were
   assert.strictEqual(Object.keys(coverage.files).length, 0);
 });
 
-test('parse() returns correct coverage counters', () => {
+test('parse(): returns correct coverage counters', () => {
   const coverage = parse(fixtureLcov, []);
   assert.strictEqual(coverage.lines.found, 268);
   assert.strictEqual(coverage.lines.hit, 163);

@@ -83,11 +83,23 @@ test('testFileExistsAndIsReadable() should not throw when LCOV exists', () => {
   });
 });
 
-test('calculateTotalCoverage() should return 0 when it cannot calculate the result', () => {
+test('calculateTotalCoverage(): should return 0 when it cannot calculate the result because of NaN', () => {
   assert.strictEqual(
     calculateTotalCoverage(CoverageType.Lines, {
       lines: {
         hit: 0,
+        found: 0,
+      },
+    } as DetailCoverage),
+    0,
+  );
+});
+
+test('calculateTotalCoverage(): return 0 on nonsensical data', () => {
+  assert.strictEqual(
+    calculateTotalCoverage(CoverageType.Lines, {
+      lines: {
+        hit: 4,
         found: 0,
       },
     } as DetailCoverage),
@@ -125,6 +137,11 @@ test('calculateTotalCoverage() should return 0 when it cannot calculate the resu
     name: 'returnWholeNumber(): returns number when string contains whitespace',
     input: ' 5  ',
     result: 5,
+  },
+  {
+    name: 'returnWholeNumber(): returns 0 for Infinity input string',
+    input: 'Infinity',
+    result: 0,
   },
 ].forEach(({ name, input, result }) => {
   test(name, () => {
