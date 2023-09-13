@@ -43,7 +43,7 @@ export default function parse(pathToLcovFile: string, sourceFiles: string[]): De
   const readLiner = new LineByLine(pathToLcovFile);
   let line;
   let currentSourceFile = '';
-  // rome-ignore lint/suspicious/noAssignInExpressions: valid use with readLiner and while here
+  // biome-ignore lint/suspicious/noAssignInExpressions: valid use with readLiner and while here
   while ((line = readLiner.next())) {
     const [instruction, value] = line.toString().trim().split(':');
     const instructionUpper = instruction.toUpperCase();
