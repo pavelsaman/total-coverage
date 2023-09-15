@@ -20,7 +20,9 @@
     "noImplicitReturns": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
-    "allowJs": false
+    "allowUnusedLabels": false,
+    "noImplicitOverride": true,
+    "noImplicitThis": true
   },
   "include": ["src"]
 }
