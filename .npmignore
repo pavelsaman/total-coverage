@@ -9,6 +9,7 @@ coverage/
 .nvmrc
 Makefile
 rome.json
+biome.json
 tsconfig.json
 .editorconfig
 *.tgz
