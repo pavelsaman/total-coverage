@@ -34,12 +34,6 @@ export function returnWholeNumber(numAsStr: string): number {
   return isFinite(num) ? num : 0;
 }
 
-export function omitEmpty<T extends object>(obj: T, prop: keyof T): void {
-  if (typeof obj[prop] === 'object' && Object.keys(obj[prop] as object).length === 0) {
-    delete obj[prop];
-  }
-}
-
 export function deepClone<T extends object>(obj: T): T {
   return JSON.parse(JSON.stringify(obj));
 }
