@@ -2,11 +2,14 @@
   "name": "total-coverage",
   "author": "Pavel Saman",
   "description": "Parse LCOV file and return total coverages",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": "bin/total-coverage.js",
-  "keywords": ["lcov", "coverage"],
+  "keywords": [
+    "lcov",
+    "coverage"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/pavelsaman/total-coverage",
   "bugs": {
