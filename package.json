@@ -2,7 +2,7 @@
   "name": "total-coverage",
   "author": "Pavel Saman",
   "description": "Parse LCOV file and return total coverages",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": "bin/total-coverage.js",
