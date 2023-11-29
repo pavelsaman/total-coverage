@@ -9,13 +9,13 @@ export default function totalCoverage(pathToLcovFile: string, sourceFiles?: stri
 
   const detailCoverage = parse(normalizedPath, sourceFiles ?? []);
   const files: FileTotalCoverage = {};
-  Object.entries(detailCoverage.files).forEach(([file, detailFileCov]) => {
+  for (const [file, detailFileCov] of Object.entries(detailCoverage.files)) {
     files[file] = {
       totalLineCov: calculateTotalCoverage(CoverageType.Lines, detailFileCov),
       totalBranchCov: calculateTotalCoverage(CoverageType.Branches, detailFileCov),
       totalFunctionCov: calculateTotalCoverage(CoverageType.Functions, detailFileCov),
     };
-  });
+  }
 
   const totalCoverages = {
     totalLineCov: calculateTotalCoverage(CoverageType.Lines, detailCoverage),

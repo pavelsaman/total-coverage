@@ -26,12 +26,12 @@ export function calculateTotalCoverage(
   detailCoverage: OmitFrom<DetailCoverage, keyof DetailFiles>,
 ): number {
   const totalCoverage = roundtoOneDecimalPlace((detailCoverage[type].hit / detailCoverage[type].found) * 100);
-  return isFinite(totalCoverage) ? totalCoverage : 0;
+  return Number.isFinite(totalCoverage) ? totalCoverage : 0;
 }
 
 export function returnWholeNumber(numAsStr: string): number {
   const num = Number(numAsStr.trim());
-  return isFinite(num) ? num : 0;
+  return Number.isFinite(num) ? num : 0;
 }
 
 export function deepClone<T extends object>(obj: T): T {
