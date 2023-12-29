@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    labels:
+      - CI
+    directory: /
+    assignees:
+      - pavelsaman
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    labels:
+      - deps
+    directory: /
+    assignees:
+      - pavelsaman
+    schedule:
+      interval: weekly
