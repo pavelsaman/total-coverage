@@ -17,3 +17,4 @@ updates:
       - pavelsaman
     schedule:
       interval: weekly
+    versioning-strategy: increase
