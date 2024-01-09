@@ -41,7 +41,7 @@ export default function parse(pathToLcovFile: string, sourceFiles: string[]): De
   };
 
   const readLiner = new LineByLine(pathToLcovFile);
-  let line;
+  let line: false | Buffer;
   let currentSourceFile = '';
   // biome-ignore lint/suspicious/noAssignInExpressions: valid use with readLiner and while here
   while ((line = readLiner.next())) {
