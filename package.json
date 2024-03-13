@@ -6,10 +6,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": "bin/total-coverage.js",
-  "keywords": [
-    "lcov",
-    "coverage"
-  ],
+  "keywords": ["lcov", "coverage"],
   "license": "MIT",
   "homepage": "https://github.com/pavelsaman/total-coverage",
   "bugs": {
@@ -35,7 +32,7 @@
     "clean-all": "rm -rf lib/ && rm -rf node_modules/"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.5.3",
+    "@biomejs/biome": "^1.6.1",
     "@types/n-readlines": "^1.0.6",
     "@types/node": "^20.11.25",
     "tsx": "^4.7.1",

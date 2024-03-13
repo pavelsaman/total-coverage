@@ -1,2 +1,2 @@
-import { DetailCoverage } from './models';
+import { type DetailCoverage } from './models';
 export default function parse(pathToLcovFile: string, sourceFiles: string[]): DetailCoverage;

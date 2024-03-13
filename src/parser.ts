@@ -1,5 +1,5 @@
 import LineByLine from 'n-readlines';
-import { CoverageCounter, CoverageType, DetailCoverage, LineType } from './models';
+import { CoverageCounter, CoverageType, type DetailCoverage, LineType } from './models';
 import { deepClone, returnWholeNumber } from './utils';
 
 const instructionToCoverageTypeMapping = new Map([

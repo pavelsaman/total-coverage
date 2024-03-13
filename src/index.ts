@@ -1,5 +1,5 @@
-import path from 'path';
-import { CoverageType, FileTotalCoverage, TotalCoverage } from './models';
+import path from 'node:path';
+import { CoverageType, type FileTotalCoverage, type TotalCoverage } from './models';
 import parse from './parser';
 import { calculateTotalCoverage, testFileExistsAndIsReadable } from './utils';
 

@@ -1,5 +1,5 @@
-import fs from 'fs';
-import { CoverageType, DetailCoverage, DetailFiles, OmitFrom } from '../models';
+import fs from 'node:fs';
+import type { CoverageType, DetailCoverage, DetailFiles, OmitFrom } from '../models';
 
 export function testFileExistsAndIsReadable(path: string) {
   if (!fs.existsSync(path)) {

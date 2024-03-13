@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { CoverageType, DetailCoverage } from '../src/models';
+import { CoverageType, type DetailCoverage } from '../src/models';
 import { calculateTotalCoverage, returnWholeNumber, testFileExistsAndIsReadable } from '../src/utils';
 import { fixtureLcov } from './utils';
 
