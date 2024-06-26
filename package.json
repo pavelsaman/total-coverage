@@ -23,7 +23,7 @@
     "install-git-hooks": "cp git-hooks/* .git/hooks/ && chmod +x .git/hooks/*[^.sample]",
     "format": "biome format --write ./",
     "format-check": "biome format ./",
-    "lint": "biome check --apply ./",
+    "lint": "biome check --write ./",
     "lint-check": "biome check ./",
     "test": "node --loader tsx --no-warnings --test test/*.test.ts",
     "build": "tsc --build",

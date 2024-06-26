@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.1.2/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
   "files": {
     "ignore": ["./dist", "./lib", "package-lock.json"],
     "ignoreUnknown": true
@@ -16,7 +16,7 @@
     "formatter": {
       "quoteStyle": "single",
       "semicolons": "always",
-      "trailingComma": "all"
+      "trailingCommas": "all"
     }
   },
   "linter": {
@@ -33,6 +33,7 @@
       },
       "correctness": {
         "all": true,
+        "noNodejsModules": "off",
         "noUndeclaredVariables": "error",
         "noUnusedVariables": "error"
       },
