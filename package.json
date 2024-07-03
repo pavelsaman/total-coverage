@@ -35,7 +35,7 @@
     "@biomejs/biome": "^1.8.2",
     "@types/n-readlines": "^1.0.6",
     "@types/node": "^20.14.9",
-    "tsx": "^4.15.7",
+    "tsx": "^4.16.1",
     "typescript": "^5.5.3"
   },
   "dependencies": {
