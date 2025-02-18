@@ -34,7 +34,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/n-readlines": "^1.0.6",
-    "@types/node": "^22.13.1",
+    "@types/node": "^22.13.4",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
   },
