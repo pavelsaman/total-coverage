@@ -36,7 +36,7 @@
     "@types/n-readlines": "^1.0.6",
     "@types/node": "^22.13.13",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.9.2"
   },
   "dependencies": {
     "n-readlines": "^1.0.1"
