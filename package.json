@@ -36,12 +36,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.6.4",
-    "@types/n-readlines": "^1.0.6",
-    "@types/node": "^22.20.5",
+    "@types/n-readlines": "^3.0.0",
+    "@types/node": "^26.6.6",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   },
   "dependencies": {
-    "n-readlines": "^1.0.1"
+    "n-readlines": "^3.4.1"
   }
 }

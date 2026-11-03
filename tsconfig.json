@@ -22,7 +22,8 @@
     "noUnusedLocals": true,
     "allowUnusedLabels": false,
     "noImplicitOverride": true,
-    "noImplicitThis": true
+    "noImplicitThis": true,
+    "types": ["node"]
   },
   "include": ["src"]
 }
