@@ -9,23 +9,13 @@ Parse LCOV file and return total line, branch, and function coverage as well as 
 ```ts
 import totalCoverage from 'total-coverage';
 
-const {
-  totalLineCov,
-  totalBranchCov,
-  totalFunctionCov
-} = totalCoverage('path/to/lcov.info');
+const { totalLineCov, totalBranchCov, totalFunctionCov } = totalCoverage('path/to/lcov.info');
 
-const sourceFilesToGetCoverageFor = [
-  'apps/api/src/a.ts',
-  'apps/api/src/b.ts',
-  'apps/api/src/c.ts',
-];
-const {
-  totalLineCov,
-  totalBranchCov,
-  totalFunctionCov,
-  files,
-} = totalCoverage('path/to/lcov.info', sourceFilesToGetCoverageFor);
+const sourceFilesToGetCoverageFor = ['apps/api/src/a.ts', 'apps/api/src/b.ts', 'apps/api/src/c.ts'];
+const { totalLineCov, totalBranchCov, totalFunctionCov, files } = totalCoverage(
+  'path/to/lcov.info',
+  sourceFilesToGetCoverageFor,
+);
 
 // files property is not present if no concrete source files were passed
 // or no such source files were found in the lcov file

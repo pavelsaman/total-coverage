@@ -6,7 +6,10 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": "bin/total-coverage.js",
-  "keywords": ["lcov", "coverage"],
+  "keywords": [
+    "lcov",
+    "coverage"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/pavelsaman/total-coverage",
   "bugs": {
@@ -17,7 +20,7 @@
     "url": "https://github.com/pavelsaman/total-coverage.git"
   },
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=24"
   },
   "scripts": {
     "install-git-hooks": "cp git-hooks/* .git/hooks/ && chmod +x .git/hooks/*[^.sample]",
@@ -25,18 +28,18 @@
     "format-check": "biome format ./",
     "lint": "biome check --write ./",
     "lint-check": "biome check ./",
-    "test": "node --loader tsx --no-warnings --test test/*.test.ts",
+    "test": "node --import tsx --no-warnings --test test/*.test.ts",
     "build": "tsc --build",
     "prepack": "scripts/check-version.sh",
     "clean": "rm -rf lib/",
     "clean-all": "rm -rf lib/ && rm -rf node_modules/"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.6.4",
     "@types/n-readlines": "^1.0.6",
-    "@types/node": "^22.13.13",
-    "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "n-readlines": "^1.0.1"

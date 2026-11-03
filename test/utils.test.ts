@@ -16,7 +16,6 @@ test('testFileExistsAndIsReadable() should not throw when LCOV exists', () => {
   });
 });
 
-// biome-ignore lint/complexity/noForEach: ok in tests
 [
   {
     name: 'calculateTotalCoverage(): returns correct total coverage 100 %',
@@ -108,7 +107,6 @@ test('calculateTotalCoverage(): return 0 on nonsensical data', () => {
   );
 });
 
-// biome-ignore lint/complexity/noForEach: ok in tests
 [
   {
     name: 'returnWholeNumber(): returns 0 for NaN input string',
