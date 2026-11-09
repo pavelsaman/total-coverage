@@ -35,7 +35,7 @@
     "clean-all": "rm -rf lib/ && rm -rf node_modules/"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.6.4",
+    "@biomejs/biome": "^2.6.6",
     "@types/n-readlines": "^3.0.0",
     "@types/node": "^26.6.6",
     "tsx": "^4.23.15",
